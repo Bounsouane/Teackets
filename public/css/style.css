@@ -1,0 +1,21 @@
+body{
+    background-color: cornflowerblue;
+    font-family: 'roboto', sans-serif;
+}
+.container{
+   width: 100%;
+}
+main{
+    height: 100vh;
+}
+img{
+    width: 30px;
+}
+
+nav > ul {
+    display: flex;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
