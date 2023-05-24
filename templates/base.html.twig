@@ -25,6 +25,9 @@
         {% endfor %}
     </header>
     <main>
+        {% if app.user %}
+            <p>Hello {{ app.user.userIdentifier }}</p>
+        {% endif %}
         {% block body %} {% endblock %}
     </main>
 
