@@ -1,8 +1,12 @@
 <nav>
     <ul>
-        <li><a href="{{ path('main_home') }}">Home</a></li>
-        <li><a href="{{ path('wish_list') }}">Wish List</a></li>
-        <li><a href="{{ path('main_about_us') }}">About Us</a></li>
+            <li><a href="{{ path('main_home') }}">Home</a></li>
+            <li><a href="{{ path('ticket_list') }}">Liste des Tickets</a></li>
+            <li><a href="{{ path('professeur_list') }}">Liste des Professeurs</a></li>
+            <li><a href="{{ path('professeur_add') }}">Ajouter un Professeur</a></li>
+            <li><a href="{{ path('annonce_list') }}">Liste des Annonces</a></li>
+{#        <li><a href="{{ path('wish_list') }}">Wish List</a></li>#}
+{#        <li><a href="{{ path('main_about_us') }}">About Us</a></li>#}
         {% if app.user %}
             <li><a href="{{ path('wish_add') }}">Add a wish</a></li>
             <li><a href="{{ path('app_logout') }}">Logout</a></li>

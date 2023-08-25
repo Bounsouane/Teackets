@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    CRÉATION D'UNE ANNONCE
+{% endblock %}
+
+{% block body %}
+
+    <h1>Création d'une Annonce</h1>
+    {{ form_start(annonceForm) }}
+
+    {{ form_widget(annonceForm) }}
+
+    <button>VALIDER</button>
+
+    {{ form_end(annonceForm) }}
+
+{% endblock %}
+
+
+

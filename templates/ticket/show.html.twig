@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Ticket numéro {{ ticket.id }}
+{% endblock %}
+
+{% block body %}
+
+    <h2>Ticket numéro {{ ticket.id }}</h2>
+
+    <div>
+        <div>Identité du demandeur : </div>
+        <div>Date d'ouverture : {{ ticket.dateOuverture | date}}</div>
+        <div>Priorité : {{ ticket.priorite }}</div>
+        <div>Statut : {{ ticket.statut }}</div>
+        <div>Délai : {{ ticket.delai }}</div>
+        <div>Catégorie : {{ ticket.categorie }}</div>
+        <div>Description du problème : {{ ticket.description }}</div>
+        <div>Date de clôture : {{ ticket.dateCloture | date }}</div>
+        <div>Description de la solution</div>
+        <div>Mail-type recherche formateur : </div>
+        <p id="mailCopy">Bonjour, je recherche un professeur de {{ ticket.categorie }} pour un élève
+        sur mon site internet nommé Teackets. J'ai pu voir que vous exercez dans cette discipline.
+        Pourrions-nous en discuter?</p>
+        <button onclick="copyText()">Copier le texte</button>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <a href="{{ path('ticket_list') }}"> Retour à la liste </a>
+
+{% endblock %}
+

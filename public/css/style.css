@@ -1,42 +1,131 @@
-body{
-    background-color: chartreuse;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'roboto', sans-serif;
 }
-.container{
-   width: 100%;
-}
-main{
-    height: 100vh;
-}
-img{
-    width: 30px;
-}
 
-nav > ul {
+body {
+    min-height: 100vh;
+
+    background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("../img/allec-gomes-eu6dbu5KJs0-unsplash.jpg");
+    background-position:center;
+    background-size: cover;
+
     display: flex;
-    list-style: none;
-}
-a{
-    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+
 }
 
-label{
-    display: block;
+table, th, td{
+    padding: 1rem;
 }
 
-.flash {
-    padding: 20px;
-    font-weight: bold;
-    font-size: 1.4rem;
-    margin: 1rem 0;
-    border-radius: 5px;
-    color: #132135;
+.table {
+    width: 82vw;
+    height: 90vh;
+    background-color: #fff5 ;
+
+    backdrop-filter: blur(7px);
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: .8rem;
+
+    overflow: hidden;
 }
 
-.flash-success {
-    background-color: lawngreen
+.table_header{
+    width: 100%;
+    height: 10%;
+    background-color: #fff4;
+    padding: .8rem 1rem;
 }
 
-.flash-error {
-    background-color: red
+.table_body{
+    width: 95%;
+    max-height: calc(89% - .8rem);
+    background-color: #fffb;
+
+    margin: .8rem auto;
+    border-radius: .6rem;
+
+    overflow: auto;
 }
+
+.table_body::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.table_body::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.table_body:hover::-webkit-scrollbar-thumb{
+    visibility: hidden;
+}
+
+table, th, td{
+    border-collapse: collapse;
+    padding: 1rem;
+}
+
+thead, th {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #d5d1defe;
+
+}
+
+tbody, tr:nth-child(even){
+    background-color: #0000000b;
+}
+
+tbody, tr:hover{
+    background-color: #fff6;
+}
+/*body{*/
+/*    background-color: chartreuse;*/
+/*    font-family: 'roboto', sans-serif;*/
+/*}*/
+/*.container{*/
+/*   width: 100%;*/
+/*}*/
+/*main{*/
+/*    height: 100vh;*/
+/*}*/
+/*img{*/
+/*    width: 30px;*/
+/*}*/
+
+/*nav > ul {*/
+/*    display: flex;*/
+/*    list-style: none;*/
+/*}*/
+/*a{*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*label{*/
+/*    display: block;*/
+/*}*/
+
+/*.flash {*/
+/*    padding: 20px;*/
+/*    font-weight: bold;*/
+/*    font-size: 1.4rem;*/
+/*    margin: 1rem 0;*/
+/*    border-radius: 5px;*/
+/*    color: #132135;*/
+/*}*/
+
+/*.flash-success {*/
+/*    background-color: lawngreen*/
+/*}*/
+
+/*.flash-error {*/
+/*    background-color: red*/
+/*}*/

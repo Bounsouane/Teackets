@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+CRÉATION D'UN TICKET
+{% endblock %}
+
+{% block body %}
+
+    <h1>Création d'un Ticket</h1>
+    {{ form_start(ticketForm) }}
+
+    {% for user in ticketForm %}
+{#        <li>{{ form_row(ticketForm.users) }}</li>#}
+    {% endfor %}
+
+
+
+    {{ form_widget(ticketForm) }}
+
+    <button>VALIDER</button>
+{#    {{ form_end(userForm) }}#}
+    {{ form_end(ticketForm) }}
+{% endblock %}
+

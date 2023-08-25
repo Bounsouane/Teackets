@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Liste des tickets
+{% endblock %}
+
+{% block body %}
+<div class="table">
+
+<section class="table_header">
+
+    <h2>Liste des tickets</h2>
+</section>
+        <section class="table_body">
+            <table>
+                <thead>
+                <tr>
+                    <th>Numéro Ticket</th>
+                    <th>Description</th>
+                    <th>Catégorie</th>
+                    <th>Date Clôture</th>
+                    <th>Date Ouverture</th>
+                    <th>Délai</th>
+                    <th>Description Solution</th>
+                    <th>Priorité</th>
+                    <th>Statut</th>
+                </tr>
+                </thead>
+                {% for ticket in tickets %}
+                    <tr>
+                        <td>{{ ticket.id }}</td>
+                        <td>{{ ticket.description }}</td>
+                        <td>{{ ticket.categorie }}</td>
+                        <td>{{ ticket.dateCloture | date('d/m/y H:i') }}</td>
+                        <td>{{ ticket.dateOuverture | date('d/m/y H:i') }}</td>
+                        <td>{{ ticket.delai }}</td>
+                        <td>{{ ticket.descriptionSolution }}</td>
+                        <td>{{ ticket.priorite }}</td>
+                        <td>{{ ticket.statut }}</td>
+{#                        <td>{{ ticket.users | format_args}}</td>#}
+                        <td>
+                            <button>
+                                <a href="{{ path('ticket_show', {'id': ticket.id}) }}" title="Voir le détail à propos du ticket ">
+                                    VOIR LE DÉTAIL
+                                </a>
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+        </section>
+</div>
+{% endblock %}
+
+
+

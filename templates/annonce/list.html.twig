@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Liste des annonces
+{% endblock %}
+
+{% block body %}
+<div class="table">
+
+    <section class="table_header">
+    <h2>Liste des annonces</h2>
+    </section>
+
+        <section class="table_body">
+            <table>
+                <thead>
+                <tr>
+                    <th>Numéro Annonce</th>
+                    <th>Tarif Horaire</th>
+                    <th>Temps de Réponse</th>
+                    <th>Nombre d'Élèves</th>
+                    <th>Premier Cours Offert</th>
+                    <th>Temps du Cours Offert</th>
+                    <th>Cours en Ligne</th>
+                    <th>Cours en Pack</th>
+                    <th>Description du cours</th>
+                    <th>Question FAQ 1</th>
+                    <th>Question FAQ 2</th>
+                </tr>
+                </thead>
+
+            {% for annonce in annonces %}
+                <tr>
+                    <td>{{ annonce.id }}</td>
+                    <td>{{ annonce.tarifHoraire }}</td>
+                    <td>{{ annonce.tempsReponse }}</td>
+                    <td>{{ annonce.nombreEleves }}</td>
+                    <td>{{ annonce.premierCoursOffert }}</td>
+                    <td>{{ annonce.tempsCoursOffert }}</td>
+                    <td>{{ annonce.coursEnLigne }}</td>
+                    <td>{{ annonce.coursPack }}</td>
+                    <td>{{ annonce.descriptionCours }}</td>
+                    <td>{{ annonce.questionFAQ1 }}</td>
+                    <td>{{ annonce.questionFAQ2 }}</td>
+                    <td>
+                        <button>
+                            <a href="{{ path('annonce_show', {'id' : annonce.id}) }}" title ="Voir le détail de l'annonce">
+                                    VOIR LE DÉTAIL
+                            </a>
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </table>
+        </section>
+</div>
+{% endblock %}
+
