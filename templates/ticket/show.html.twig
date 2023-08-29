@@ -8,7 +8,6 @@
 
     <h2>Ticket numéro {{ ticket.id }}</h2>
 
-    <div>
         <div>Identité du demandeur : </div>
         <div>Date d'ouverture : {{ ticket.dateOuverture | date}}</div>
         <div>Priorité : {{ ticket.priorite }}</div>
@@ -19,14 +18,35 @@
         <div>Date de clôture : {{ ticket.dateCloture | date }}</div>
         <div>Description de la solution</div>
         <div>Mail-type recherche formateur : </div>
-        <p id="mailCopy">Bonjour, je recherche un professeur de {{ ticket.categorie }} pour un élève
+        <input type="text" value="Bonjour, je recherche un professeur de {{ ticket.categorie }} pour un élève
         sur mon site internet nommé Teackets. J'ai pu voir que vous exercez dans cette discipline.
-        Pourrions-nous en discuter?</p>
+        Pourrions-nous en discuter?" id="mailCopy">
         <button onclick="copyText()">Copier le texte</button>
+
+        <script>
+            function copyText(){
+                //récupérer le texte à copier
+                var text=document.getElementById("mailCopy");
+
+                //sélectionner le champ de texte
+                text.select();
+                text.setSelectionRange(0,99999); //pour les supports mobiles
+
+                //copier le texte présent dans le champ de texte
+                navigator.clipboard.writeText(text.value);
+
+                //Alerte pour signaler que le texte est copié
+                alert("Texte copié : " + text.value);
+            }
+
+            function textLength(){
+                document.getElementById("mailCopy").style.width = (mai);
+            }
+        </script>
+        <div><button> <a href="{{ path('ticket_update', {'id': ticket.id}) }}">MODIFIER LE TICKET</a></button></div>
+        <div><button> <a href="{{ path('ticket_delete', {'id': ticket.id}) }}">SUPPRIMER LE TICKET</a></button></div>
         <div></div>
-        <div></div>
-        <div></div>
-    </div>
+
 
     <a href="{{ path('ticket_list') }}"> Retour à la liste </a>
 

@@ -5,6 +5,11 @@
 {% endblock %}
 
 {% block body %}
+    {{ form_start(ticketForm) }}
 
+    {{ form_widget(ticketForm) }}
+
+    <button>VALIDER</button>
+    {{ form_end(ticketForm) }}
 {% endblock %}
 

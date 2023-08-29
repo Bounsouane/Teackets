@@ -93,15 +93,38 @@ class TicketController extends AbstractController
     }
 
     #[Route('/update/{id}', name: 'update', requirements: ['id' => '\d+'])]
-    public function update(int $id): Response
+    public function update(Request $request,int $id, TicketRepository $ticketRepository): Response
     {
-        return $this->render('ticket/update.html.twig');
+
+        $ticket= $ticketRepository->find($id);
+        $ticketForm = $this->createForm(TicketType::class, $ticket);
+
+        $ticketForm->handleRequest($request);
+
+        if($ticketForm->isSubmitted()) {
+            $ticketRepository->save($ticket,true);
+            $this->addFlash('success', "Le ticket numéro " . $ticket->getId() . " a été modifié avec succès.");
+            return $this->redirectToRoute('ticket_list');
+        }
+
+
+//        $ticketForm->get('')
+
+        return $this->render('ticket/update.html.twig', [
+            'ticketForm' => $ticketForm->createView()
+        ]);
     }
 
     #[Route('/delete/{id}', name: 'delete', requirements: ['id' => '\d+'])]
-    public function delete(int $id): Response
+    public function delete(int $id, TicketRepository $ticketRepository): Response
     {
-        return $this->render('ticket/list.html.twig');
+        $ticket = $ticketRepository->find($id);
+
+        //suppression du ticket
+        $ticketRepository->remove($ticket,true);
+
+        $this->addFlash('success',"Le ticket numéro " . $ticket->getId() . " a été supprimé.");
+        return $this->redirectToRoute('ticket_list');
     }
 
 }
